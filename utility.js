@@ -3,11 +3,16 @@ const BET = 1;
 
 class Gambling {
       gamble = () =>{
-          let bet = Math.floor(Math.random() * 2);
-          if (bet == 1) {
-               console.log("Win");
-          } else if (bet == 0) {
-               console.log("Loss");
+           let stake = STAKE;
+           let bet = BET;
+           let luck = Math.floor(Math.random() * 2);
+           if (luck == 1) {
+                console.log("Win");
+                stake = stake+bet;
+           } else if (luck == 0) {
+                console.log("Loss");
+                stake=stake-bet;
+                stake = stake/2;
           }
       }
 }
