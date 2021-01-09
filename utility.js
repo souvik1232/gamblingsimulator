@@ -8,18 +8,20 @@ class Gambling {
            let bet = BET;
            let totalWin=0;
            let totalLoss=0;
+           let winLuck=0;
+           let lossLuck=0;
            do {
                 day++;
                 let luck = Math.floor(Math.random() * 2);
                if (luck == 1) {
-                console.log("Win");
                 stake = stake+bet;
+                winLuck = this.luck((stake/2),winLuck);
                 totalWin = totalWin+(stake/2);
+                console.log("Win->",day,"day","->",stake/2);
                 stake = stake+(stake/2);
-                console.log("Win->",day,"day","->",stake);
                } else if (luck == 0) {
-                console.log("Loss");
                 stake=stake-bet;
+                lossLuck = this.luck((stake/2),lossLuck);
                 totalLoss = totalLoss+(stake/2);
                 stake = stake/2;
                 if (stake<=0) {
@@ -30,7 +32,14 @@ class Gambling {
            } while (day<20);
            console.log("Total win ->",totalWin,"$");
            console.log("Total loss ->",totalLoss,"$")
-           
+           console.log("Luckiest win ->",winLuck," ","Unluckiest Loss ->",lossLuck);
+      }
+      luck = (amount,base) =>{
+          if (amount > base) {
+               return amount;
+          } else {
+               return base;
+          } 
       }
 }
 module.exports = new Gambling();
