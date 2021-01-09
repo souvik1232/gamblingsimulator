@@ -16,7 +16,7 @@ class Gambling {
                 stake = stake+bet;
                 totalWin = totalWin+(stake/2);
                 stake = stake+(stake/2);
-                //console.log("Win->",day,"day","->",stake);
+                console.log("Win->",day,"day","->",stake);
                } else if (luck == 0) {
                 console.log("Loss");
                 stake=stake-bet;
@@ -25,7 +25,7 @@ class Gambling {
                 if (stake<=0) {
                      break;
                 }
-                //console.log("Loss->",day,"day","->",stake);
+                console.log("Loss->",day,"day","->",stake);
                }
            } while (day<20);
            console.log("Total win ->",totalWin,"$");
